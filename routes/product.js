@@ -12,6 +12,6 @@ router.post('/cart', authMiddleware, p.addToCart);
 router.get('/get-cart', authMiddleware, p.getCart);
 
 router.post('/checkout', authMiddleware, p.checkout)
-
-
+//Gửi đơn hàng: sử dùng hàm checkout, dữ liệu về giỏ hàng đã có trên server
+//đây là ví dụ nên không làm tính năng chọn sản phẩm, mà cho gửi toàn bộ sản phẩm trong giỏ hàng.
 module.exports = router;
