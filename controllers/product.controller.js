@@ -137,3 +137,24 @@ exports.getCart = async (req, res) => {
     res.status(500).json({ msg: 'Lỗi server' });
   }
 };
+
+
+ 
+// Lấy danh sách đơn hàng
+
+exports.getOrder = async (req, res) => {
+  const userId = req.userId;
+
+  try {
+    // Tìm các đơn hàng của người dùng
+    const orders = await Order.find({ user: userId }).populate('items.product').sort({ createdAt: -1 });
+
+    if (!orders || orders.length === 0) {
+      return res.status(404).json({ msg: 'Bạn chưa có đơn hàng nào' });
+    }
+
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ msg: 'Lỗi server' });
+  }
+};
