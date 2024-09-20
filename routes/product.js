@@ -9,6 +9,9 @@ router.post('/add',p.addProduct);
 
 router.post('/cart', authMiddleware, p.addToCart);
 
+router.get('/get-cart', authMiddleware, p.getCart);
+
+router.post('/checkout', authMiddleware, p.checkout)
 
 
 module.exports = router;
