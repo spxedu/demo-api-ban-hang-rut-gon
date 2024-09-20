@@ -158,3 +158,29 @@ exports.getOrder = async (req, res) => {
     res.status(500).json({ msg: 'Lỗi server' });
   }
 };
+
+ 
+// API tìm kiếm sản phẩm theo tên
+  
+exports.search = async (req, res) => {
+  const { q } = req.query;  // Lấy từ khóa tìm kiếm từ query params
+
+  try {
+    if (!q) {
+      return res.status(400).json({ msg: 'Vui lòng nhập từ khóa tìm kiếm' });
+    }
+
+    // Tìm sản phẩm có tên chứa từ khóa (không phân biệt hoa thường)
+    const products = await Product.find({
+      name: { $regex: q, $options: 'i' }
+    });
+
+    if (products.length === 0) {
+      return res.status(404).json({ msg: 'Không tìm thấy sản phẩm phù hợp' });
+    }
+
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ msg: 'Lỗi server' });
+  }
+};

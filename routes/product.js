@@ -17,5 +17,6 @@ router.post('/checkout', authMiddleware, p.checkout)
 
 router.get('/orders', authMiddleware,p.getOrder) // lấy danh sách đơn hàng
 
+router.get('/search', p.search); // http://localhost:3000/products/search?q=xxxx
 
 module.exports = router;
