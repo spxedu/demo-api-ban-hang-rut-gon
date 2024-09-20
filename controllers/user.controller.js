@@ -58,6 +58,11 @@ exports.reg =  async (req, res) => {
       { expiresIn: '1h' }
     );
 
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+
+    console.log(decoded);
+    
     res.json({ token });
 
   } catch (error) {
