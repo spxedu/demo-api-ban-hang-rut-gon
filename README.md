@@ -6,6 +6,14 @@ https://github.com/spxedu/demo-api-ban-hang-rut-gon/tree/ffd479e7040b4840c005154
   npm i
 ```
 - Quá trình chạy nếu có báo lỗi thiếu thư viện nào thì bạn chạy ``` npm i xxxxx ```  với xxxxx là tên gói mà bị thiếu
+- Các thư viện cần sử dụng trong code này
+```
+bcryptjs  // thư viện hỗ trợ mã hóa password...
+dotenv   // thư viện tương tác file .env
+jsonwebtoken  // thư viện tạo và xác thực token
+mongoose // thư viện tương tác Mongodb
+
+```
 
 ## 2. Sử dụng Postman để thử nghiệm các link API
 - Đăng ký: POST: http://localhost:3000/users/reg
